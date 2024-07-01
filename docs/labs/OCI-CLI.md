@@ -30,7 +30,7 @@ If you run out of time, you can go straight to Task 3 by opening the Cloud Shell
 ![cloud-shell.png](images/oci-cli/cloud-shell.png)
 
 ### Task 0: (Optional) install OCI CLI on your computer
-1. You can skip this task by using the computer instance provide in [commPreReq.md, click to see or right mouse button click to open new tab as you may need it for other labs](../ecc/labs/commPreReq.md).
+1. You can skip this task by using the computer instance provide in [commPreReq.md, click to see or right mouse button click to open new tab as you may need it for other labs](../ecc/labs/commPreReq.html).
 2. For advance user, you can follow the [OCI CLI installation manual](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm) to install OCI CLI on your computer.
     - OCI CLI run in all major OS's such as Windows, MacOS, Linux, and Unix.
 

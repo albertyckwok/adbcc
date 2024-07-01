@@ -83,4 +83,4 @@ If you have access to Oracle WAN, e.g. in an Office campus, then you can ssh to 
 
 ### Task 3: Additional test for lab prerequists.
 
-You may want to follow the instruction describe in [commPreReq.md, click to see or right mouse button click to open new tab as you may need it for other labs](../ecc/labs/commPreReq.md) as most labs require them.
+You may want to follow the instruction describe in [commPreReq.md, click to see or right mouse button click to open new tab as you may need it for other labs](../ecc/labs/commPreReq.html) as most labs require them.

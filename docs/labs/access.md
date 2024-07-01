@@ -9,9 +9,9 @@ When working in the cloud, there are often times when your servers and services 
 ## Tasks
 
 The following are a few ways to access to cloud resources depending on where the resources are located. The first 3 are the best as they are cloud services, i.e. out-of-box, on-demand, scale automatically as needed, simplest to use and support.
-1. [OCI Secure Desktop service (OSD)](../../exacs/labs/osdAccess.md) is the most comprehesive. It provides both GUI and text terminal access to private resource with any browser.
-2. [OCI cloud shell](../../exacs/labs/connect-dbs-ocishell.md) is the simplest if all you need is text terminal basic access. It comes with the OCI UI/control plane without any additional requirement.
-3. [OCI Bastion Service](../../exacs/labs/bastionService.md) allows secure access to resource with minimal network require that can tolerate network with long/high latency.
-4. [Standard SSH bastion Host](../../exacs/labs/bastionHost.md) is most flexible that support all standard SSH features.
+1. [OCI Secure Desktop service (OSD)](../../exacs/labs/osdAccess.html) is the most comprehesive. It provides both GUI and text terminal access to private resource with any browser.
+2. [OCI cloud shell](../../exacs/labs/connect-dbs-ocishell.html) is the simplest if all you need is text terminal basic access. It comes with the OCI UI/control plane without any additional requirement.
+3. [OCI Bastion Service](../../exacs/labs/bastionService.html) allows secure access to resource with minimal network require that can tolerate network with long/high latency.
+4. [Standard SSH bastion Host](../../exacs/labs/bastionHost.html) is most flexible that support all standard SSH features.
 5. VPN (../../exacs/labs/Virtual Private Network) for both site to site and client to site that extend the private network to your site and desktop client. This requires additional setup for both customer.
 6. [Access OSC data center](accessOSC.md) provides direct access to OSC data center that the resource such as ExaCC is located.

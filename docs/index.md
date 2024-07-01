@@ -19,20 +19,20 @@ This is a series of hands-on labs designed to familiarize participants with all 
 - Practices for Lesson 2:
 
   1. [Create Database](labs/createDB.md)
-  3. [Work Requests](../ecc/labs/workRequests.md)
+  3. [Work Requests](../ecc/labs/workRequests.html)
   1. [Scaling and Performance Monitoring](labs/adb-scaling.md)
   4. [Clone an Autonomous Database](labs/cloneDB.md)
   5. [Terminate an Autonomous Database](labs/deleteDB.md)
 
-[Lesson 3: Identity and Access Management](../ecc/lessons/identityAndAccessManagement.md).
+[Lesson 3: Identity and Access Management](../ecc/lessons/identityAndAccessManagement.html).
 
 - Practices for Lesson 3:
 
   1. [IAM Practice - Identity and Access Management](labs/adbIAM.md)
   1. [Multi-Factor Authentication (MFA)](labs/mfaIAM.md)
-  2. [OCI Audit Service](../ecc/labs/audit-service.md)
+  2. [OCI Audit Service](../ecc/labs/audit-service.html)
 
-[Lesson 4: Security](../ecc/lessons/dbSecurity.md).
+[Lesson 4: Security](../ecc/lessons/dbSecurity.html).
 
 - Practices for Lesson 4:
 
@@ -40,34 +40,34 @@ This is a series of hands-on labs designed to familiarize participants with all 
   2. [Database Network Encryption](labs/dbNetEnc.md)
   3. [Database Vault](labs/DBVault.md)
 
-[Lesson 5: Developer/DevOps Tools and Methodology](../ecc/lessons/devOpsToolsAndMethodology.md).
+[Lesson 5: Developer/DevOps Tools and Methodology](../ecc/lessons/devOpsToolsAndMethodology.html).
 
 - Practices for Lesson 5:
 
   1. [OCI CLI](labs/OCI-CLI.md)
   1. [Getting started with GitHub](labs/gitBeginner.md)
-     - [Install VS Code IDE (optional)](../ecc/labs/vsCode.md)
-  2. [Getting started with Terraform](../ecc/labs/tfBeginner.md)
+     - [Install VS Code IDE (optional)](../ecc/labs/vsCode.html)
+  2. [Getting started with Terraform](../ecc/labs/tfBeginner.html)
   3. [Manage database with Terraform](labs/tf4Db.md)
-  3. [IaC with OCI Resource Manager(ORM)](../ecc/labs/orm.md)
+  3. [IaC with OCI Resource Manager(ORM)](../ecc/labs/orm.html)
   3. [SQL Developer Web and RESTful Services](labs/adb-sqldevweb.md)
   1. [Oracle Application Express (APEX)](labs/Apex.md)
 
 
-[Lesson 6: MAA/ADG - HA, data protection and DR](../ecc/lessons/dbMAA.md).
+[Lesson 6: MAA/ADG - HA, data protection and DR](../ecc/lessons/dbMAA.html).
 
 - Practices for Lesson 6:
 
   1. [Data Guard (WIP)](https://docs.oracle.com/en-us/iaas/exadata/doc/adb-using-adg-with-adb.html)
   2. [Backup and Recovery](labs/backupRestore.md)
 
-[Lesson 7: Enterprise Manager and Cost Management](../ecc/lessons/enterpriseManager.md).
+[Lesson 7: Enterprise Manager and Cost Management](../ecc/lessons/enterpriseManager.html).
 
 - Practices for Lesson 7:
 
 
   1. [Enterprise Manager](labs/emAdb.md)
-  1. [EM Chargeback (WIP)](../ecc/labs/emCrossCharge.md)
+  1. [EM Chargeback (WIP)](../ecc/labs/emCrossCharge.html)
   1. [Cost and Usage (WIP)](https://github.com/oracle/oci-python-sdk/tree/master/examples/usage_reports_to_adw)
 
 Lesson 8: Administration and Maintenance
@@ -88,9 +88,9 @@ Lesson 9: Provisioning Exadata Cloud@Customer Systems
   5. [Create a VM Cluster](https://docs.cloud.oracle.com/en-us/iaas/exadata/doc/eccmanagingvmclusters.html#GUID-9A45C3AD-6453-4173-812B-5EF94D9CA876)
   6. [Managing Backup Destinations](https://docs.cloud.oracle.com/en-us/iaas/exadata/doc/eccmanagingbackupdest.html)
 
-[Lesson 10: Exadata Features and Functions](../ecc/lessons/dbFeaturesCapabilities.md).
+[Lesson 10: Exadata Features and Functions](../ecc/lessons/dbFeaturesCapabilities.html).
 
 - Practices for Lesson 10:
 
-  1. [Smart Scan](../ecc/labs/smartScan.md)
-  2. [Advanced Compression](../ecc/labs/hcc.md)
+  1. [Smart Scan](../ecc/labs/smartScan.html)
+  2. [Advanced Compression](../ecc/labs/hcc.html)

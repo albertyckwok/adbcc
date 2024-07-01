@@ -21,7 +21,7 @@ As an administrator,
 
 ### Required Artifacts
 
-For most of the labs you just need the connection string (cs) to connect to the database and password (myPwd) for the database. See [lab setup, click to see or right mouse button click to open new tab as you may need it for other labs](../../ecc/labs/commPreReq.md) or refer to the email sent by the instructor.
+For most of the labs you just need the connection string (cs) to connect to the database and password (myPwd) for the database. See [lab setup, click to see or right mouse button click to open new tab as you may need it for other labs](../../ecc/labs/commPreReq.html) or refer to the email sent by the instructor.
 
 ## Tasks
 

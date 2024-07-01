@@ -16,7 +16,7 @@ The following show how TDE work:
 
 ## Required Artifacts
 
-This lab requires the artifact describe in [commPreReq.md, click to see or right mouse button click to open new tab as you may need it for other labs](../ecc/labs/commPreReq.md).
+This lab requires the artifact describe in [commPreReq.md, click to see or right mouse button click to open new tab as you may need it for other labs](../ecc/labs/commPreReq.html).
 
 ## **Tasks**
 

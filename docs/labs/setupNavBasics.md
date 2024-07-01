@@ -52,4 +52,4 @@ You need access to OCI cloud.
    ```
 ## References ##
 
-- See [Hands on Participant setup](../ecc/labs/commPreReq.md) for more details
+- See [Hands on Participant setup](../ecc/labs/commPreReq.html) for more details
