@@ -1,0 +1,747 @@
+akwok@sgd-arr05:~ $ firefox -p demo&
+[1] 68956
+akwok@sgd-arr05:~ $ ssh devtool3.us.osc.oracle.com
+Warning: Permanently added 'devtool3.us.osc.oracle.com' (ECDSA) to the list of known hosts.
+akwok@devtool3:~ $ nodeName=exacc4-01;domName=us.osc.oracle.com;pp=BEstr0ng###;myInit=ak;myDBnum=0
+akwok@devtool3:~ $ sqlplus "ADMIN/${pp}$myDBnum@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_tp.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Mon Sep 14 08:44:45 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Fri Sep 11 2020 14:16:09 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> select * from global_name;
+
+GLOBAL_NAME
+--------------------------------------------------------------------------------
+AKPDB0.ATP.ORACLECLOUD.COM
+
+SQL> select * from V$TABLESPACE;
+
+       TS# NAME 			  INC BIG FLA ENC     CON_ID
+---------- ------------------------------ --- --- --- --- ----------
+	 0 SYSTEM			  YES YES YES		   7
+	 1 SYSAUX			  YES YES YES		   7
+	 2 UNDOTBS1			  YES YES YES		   7
+	10 DBFS_TS			  YES YES YES		   7
+	 4 UNDO 			  YES YES YES		   7
+	 6 UNDO_4			  YES YES YES		   7
+	 7 UNDO_5			  YES YES YES		   7
+	 8 DATA 			  YES YES YES		   7
+	 9 TEMP 			  NO  YES YES		   7
+
+9 rows selected.
+
+SQL> show parameter cpu
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> SHOW PARAMETER SGA_TARGET
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 08.51.53.696636 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 08.52.15.226067 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 08.54.29.255865 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.17.37.211851 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> 
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.27.41.778740 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.31.24.831360 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.31.28.666236 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.32.04.311287 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.32.14.526301 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.32.41.151770 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 2
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.33.16.946985 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.33.34.098834 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.34.20.137425 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.34.51.352802 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.35.27.819820 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.35.45.369641 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.36.22.293115 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 12
+cpu_min_count			     string	 4
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 14G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 4608M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.37.24.346226 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 12
+cpu_min_count			     string	 4
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 14G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 4608M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.38.04.400186 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 12
+cpu_min_count			     string	 4
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 14G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 4608M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.39.01.619756 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 12
+cpu_min_count			     string	 4
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 14G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 4608M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.39.43.895313 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.40.18.232059 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> select localtimestamp from dual;
+show parameter cpu
+SHOW PARAMETER SGA_TARGET
+SHOW PARAMETER PGA_AGGREGATE_TARGET
+
+LOCALTIMESTAMP
+---------------------------------------------------------------------------
+14-SEP-20 09.40.40.588777 AM
+
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+_cpu_count_startup		     integer	 50
+_rm_exadata_pdb_cpu_cnt 	     boolean	 TRUE
+_rm_exadata_pdb_cpu_cnt_mult	     integer	 400
+cpu_count			     integer	 6
+cpu_min_count			     string	 2
+parallel_threads_per_cpu	     integer	 1
+resource_manager_cpu_allocation      integer	 100
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+sga_target			     big integer 7G
+SQL> 
+NAME				     TYPE	 VALUE
+------------------------------------ ----------- ------------------------------
+pga_aggregate_target		     big integer 2304M
+SQL> 

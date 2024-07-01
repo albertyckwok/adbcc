@@ -1,0 +1,376 @@
+akwok@sgd-arr05:~ $ firefox -p demo&
+[1] 43114
+akwok@sgd-arr05:~ $ ssh devtool3.us.osc.oracle.com
+Warning: Permanently added 'devtool3.us.osc.oracle.com' (ECDSA) to the list of known hosts.
+(reverse-i-search)`med': sqlplus "ADMIN/${pp}$myDBnum@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_^Cdium.atp.oraclecloud.com"
+akwok@devtool3:~ $ nodeName=exacc4-01;domName=us.osc.oracle.com;pp=BEstr0ng###;myInit=xx;myDBnum=0
+akwok@devtool3:~ $ sqlplus "ADMIN/${pp}$myDBnum@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 10:39:13 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Tue Sep 01 2020 15:17:32 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> select * from global_name;
+
+GLOBAL_NAME
+--------------------------------------------------------------------------------
+XXPDB0.ATP.ORACLECLOUD.COM
+
+SQL> 
+SQL> create user hr identified by WElcome_123#;
+
+User created.
+
+SQL> grant create session, create table to hr;
+
+Grant succeeded.
+
+SQL> grant unlimited tablespace to hr;
+
+Grant succeeded.
+
+SQL> create table hr.employees (id number, name varchar2 (20), salary number);
+
+Table created.
+
+SQL> insert into hr.employees values (10,'Larry',20000);
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> create user appuser identified by WElcome_123#;
+
+User created.
+
+SQL> grant create session, read any table to appuser;
+
+Grant succeeded.
+
+SQL> create user dv_owner2 identified by WElcome_123#;
+
+User created.
+
+SQL> grant create session to dv_owner2;
+
+Grant succeeded.
+
+SQL> grant audit_admin to dv_owner2;
+
+Grant succeeded.
+
+SQL> create user dv_acctmgr2 identified by WElcome_123#;
+
+User created.
+
+SQL> grant create session to dv_acctmgr2;
+
+Grant succeeded.
+
+SQL> exec dvsys.configure_dv('dv_owner2','dv_acctmgr2');
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT VALUE FROM V$OPTION WHERE PARAMETER = 'Oracle Database Vault';
+
+VALUE
+----------------------------------------------------------------
+FALSE
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "dv_owner2/WElcome_123#@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 13:06:51 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> exec dbms_macadm.enable_dv;
+
+PL/SQL procedure successfully completed.
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "dv_owner2/WElcome_123#@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 13:18:03 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Sep 02 2020 13:07:59 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> exec dbms_macadm.enable_dv;
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT VALUE FROM V$OPTION WHERE PARAMETER = 'Oracle Database Vault';
+
+VALUE
+----------------------------------------------------------------
+TRUE
+
+SQL> BEGIN
+ DBMS_MACADM.CREATE_REALM(
+  realm_name    => 'HR App',
+  description   => 'Realm to protect HR tables',
+  enabled       => 'y',
+  audit_options => DBMS_MACUTL.G_REALM_AUDIT_OFF,
+  realm_type    => 1);
+END;
+/
+  2    3    4    5    6    7    8    9  
+PL/SQL procedure successfully completed.
+
+SQL> BEGIN
+ DBMS_MACADM.ADD_OBJECT_TO_REALM(
+  realm_name   => 'HR App',
+  object_owner => 'HR',
+  object_name  => 'EMPLOYEES',
+  object_type  => 'TABLE');
+END;
+/
+  2    3    4    5    6    7    8  
+PL/SQL procedure successfully completed.
+
+SQL> BEGIN
+ DBMS_MACADM.ADD_AUTH_TO_REALM(
+  realm_name   => 'HR App',
+  grantee      => 'APPUSER');
+END;
+/
+  2    3    4    5    6  
+PL/SQL procedure successfully completed.
+
+SQL> create audit policy dv_realm_hr
+actions select, update, delete
+actions component=DV Realm Violation ON "HR App";
+  2    3  
+Audit policy created.
+
+SQL> audit policy dv_realm_hr;
+
+Audit succeeded.
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "hr/WElcome_123#@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 13:36:00 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> select user from dual;
+
+USER
+--------------------------------------------------------------------------------
+HR
+
+SQL> select * from hr.employees;
+select * from hr.employees
+                 *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "ADMIN/${pp}$myDBnum@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 13:36:33 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Sep 02 2020 10:40:21 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> select user from dual;
+
+USER
+--------------------------------------------------------------------------------
+ADMIN
+
+SQL> select * from hr.employees;
+select * from hr.employees
+                 *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "appuser/WElcome_123#@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 13:37:08 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> select user from dual;
+
+USER
+--------------------------------------------------------------------------------
+APPUSER
+
+SQL> select * from hr.employees;
+
+	ID NAME 		    SALARY
+---------- -------------------- ----------
+	10 Larry		     20000
+
+SQL> exit
+Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "dv_owner2/WElcome_123#@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 13:39:36 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Sep 02 2020 13:19:12 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> set head off
+SQL> select os_username, dbusername, event_timestamp, action_name, sql_text
+from UNIFIED_AUDIT_TRAIL where DV_ACTION_NAME='Realm Violation Audit';
+  2  
+akwok
+HR
+02-SEP-20 01.37.17.351568 PM
+SELECT
+select * from hr.employees
+
+akwok
+ADMIN
+02-SEP-20 01.37.51.704690 PM
+SELECT
+select * from hr.employees
+
+
+SQL> noaudit policy dv_realm_hr;
+
+Noaudit succeeded.
+
+SQL> drop audit policy dv_realm_hr;
+
+Audit Policy dropped.
+
+SQL> EXEC DBMS_MACADM.DELETE_REALM('HR App');
+
+PL/SQL procedure successfully completed.
+
+SQL> EXEC DBMS_MACADM.DISABLE_DV;
+
+PL/SQL procedure successfully completed.
+
+SQL> SELECT VALUE FROM V$OPTION WHERE PARAMETER = 'Oracle Database Vault';
+
+TRUE
+
+SQL> exit
+Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ echo Restart DB
+Restart DB
+akwok@devtool3:~ $ sqlplus "dv_owner2/WElcome_123#@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 13:54:47 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Sep 02 2020 13:55:06 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> SELECT VALUE FROM V$OPTION WHERE PARAMETER = 'Oracle Database Vault';
+
+VALUE
+----------------------------------------------------------------
+FALSE
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "hr/WElcome_123#@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 14:03:52 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Sep 02 2020 13:37:09 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> select * from hr.employees;
+
+	ID NAME 		    SALARY
+---------- -------------------- ----------
+	10 Larry		     20000
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ sqlplus "ADMIN/${pp}$myDBnum@$nodeName-scan.$domName:1521/${myInit}pdb${myDBnum}_medium.atp.oraclecloud.com"
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Sep 2 14:04:20 2020
+Version 19.6.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Last Successful login time: Wed Sep 02 2020 13:37:42 -07:00
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+
+SQL> select * from hr.employees;
+
+	ID NAME 		    SALARY
+---------- -------------------- ----------
+	10 Larry		     20000
+
+SQL> Disconnected from Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.8.0.0.0
+akwok@devtool3:~ $ 
